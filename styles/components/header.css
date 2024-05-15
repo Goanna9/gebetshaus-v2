@@ -8,7 +8,7 @@
     --hamburger-color: var(--primary-d-7);
     --hamburger-border: 1px solid var(--primary-d-2);
     --header-padding: 1rem;
-    --header-height: calc(var(--hamburger-size) + (calc(var(--header-padding) * 2))); /* Size of the Burger plus padding of the header plus bottom border from headr of 1px */
+    --header-height: calc(var(--hamburger-size) + (calc(var(--header-padding) * 2)) + 1px); /* Size of the Burger plus padding of the header plus bottom border from headr of 1px */
     --offscreen-inline-padding: var(--space-s);
     --offscreen-backgound-color: var(--primary-l-6);
 }
