@@ -1,0 +1,190 @@
+/* ======================== */
+/*        ↓ HEADER ↓        */
+/* ======================== */
+
+:root {
+    --hamburger-stroke-width: 5px;
+    --hamburger-size: clamp(40px, 17.1429px + 7.1429vi, 60px);
+    --hamburger-color: var(--primary-d-7);
+    --hamburger-border: 1px solid var(--primary-d-2);
+    --header-padding: 1rem;
+    --header-height: calc(var(--hamburger-size) + (calc(var(--header-padding) * 2)));
+    --offscreen-inline-padding: var(--space-s);
+    --offscreen-backgound-color: var(--primary-l-6);
+}
+
+main {
+    margin-top: var(--header-height);
+}
+
+.header__navigation {
+    padding-block: var(--header-padding);
+    padding-inline: var(--offscreen-inline-padding);
+    background-color: var(--offscreen-backgound-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: var(--hamburger-border);
+}
+
+.hamburger {
+    position: relative;
+    cursor: pointer;
+}
+
+.offscreen-menu {
+    padding-top: var(--header-height);
+    padding-bottom: var(--offscreen-inline-padding);
+    position: fixed;
+    top: 0;
+    right: 100%;
+    height: 100vh;
+    width: 100%;
+    transition: right .5s;
+    background-color: var(--offscreen-backgound-color);
+    overflow-y: auto;
+}
+
+.offscreen-menu.active {
+    right: 0;
+}
+
+.hamburger__svg {
+    width: var(--hamburger-size);
+    height: var(--hamburger-size);
+}
+
+.menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+  }
+  .line {
+    fill: none;
+    stroke: var(--hamburger-color);
+    stroke-width: var(--hamburger-stroke-width);
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: var(--hamburger-stroke-width);
+  }
+  .line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: var(--hamburger-stroke-width);
+  }
+  .line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: var(--hamburger-stroke-width);
+  }
+  .opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: var(--hamburger-stroke-width);
+  }
+  .opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: var(--hamburger-stroke-width);
+  }
+  .opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: var(--hamburger-stroke-width);
+  }
+
+  .mobile-header__logo {
+    font-family: 'Dancing Script';
+    font-size: calc(var(--hamburger-size) * 0.8);
+    cursor: pointer;
+    color: var(--hamburger-color);
+    z-index: 2;
+}
+
+.mobile-header__ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mobile-header__ul > * {
+    border-bottom: var(--hamburger-border);
+}
+
+.mobile-header__link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--h4);
+    font-weight: 500;
+    padding-inline: var(--offscreen-inline-padding);
+    padding-block: 0.75em;
+    color: inherit;
+    text-decoration: none;
+}
+
+.mobile-header__link-btn {
+    background-color: var(--hamburger-color);
+    color: var(--offscreen-backgound-color);
+    border-radius: 9999px;
+    margin-top: 2.5rem;
+    max-width: 50rem;
+    margin-inline: auto;
+    justify-content: center;
+}
+
+.mobile-header__btn-wrapper {
+    margin-inline: 2rem;
+}
+
+.mobile-header__email:focus-visible {
+    border: 1px solid red;
+}
+
+.mobile-header__adress {
+    margin-inline: var(--offscreen-inline-padding);
+    margin-top: 1.5em;
+    color: var(--hamburger-color);
+    font-size: var(--h5);
+}
+
+.mobile-header__text {
+    font-weight: 500;
+    padding-block: 0.2em;
+}
+
+.mobile-header__icon {
+    display: inline;
+    width: var(--h4);
+}
+
+.mobile-header__heading {
+    font-weight: 700;
+    font-size: var(--h4);
+}
+
+.mobile-header__email {
+    color: inherit;
+    font-size: inherit;
+}
+
+@media (min-width: 768px) {
+    .offscreen-menu,
+    .header__navigation {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        display: none;
+    }
+}
